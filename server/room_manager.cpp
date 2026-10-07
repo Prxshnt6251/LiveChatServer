@@ -14,13 +14,28 @@ void room_manager::leave(const std::string& room, std::shared_ptr<websocket_sess
 }
 
 void room_manager::leave_all(std::shared_ptr<websocket_session> session) {
-    std::lock_guard<std::mutex> lock(mutex_);
-    auto it = session_rooms_.find(session);
-    if (it != session_rooms_.end()) {
-        for (const auto& room : it->second) {
-            rooms_[room].erase(session);
+    std::vector<std::string> rooms_left;
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto it = session_rooms_.find(session);
+        if (it != session_rooms_.end()) {
+            for (const auto& room : it->second) {
+                rooms_[room].erase(session);
+                rooms_left.push_back(room);
+            }
+            session_rooms_.erase(it);
         }
-        session_rooms_.erase(it);
+    }
+    
+    std::string user = session->get_username();
+    if (!user.empty()) {
+        nlohmann::json sysMsg = {
+            {"type", "system"},
+            {"text", user + " has left the room."}
+        };
+        for (const auto& room : rooms_left) {
+            broadcast(room, sysMsg);
+        }
     }
 }
 

@@ -22,6 +22,7 @@ public:
 
     void run();
     void send(std::shared_ptr<std::string const> const& ss);
+    std::string get_username() const { return username_; }
 
 private:
     void on_accept(beast::error_code ec);
@@ -34,4 +35,5 @@ private:
     beast::flat_buffer buffer_;
     std::vector<std::shared_ptr<std::string const>> queue_;
     std::mutex queue_mutex_;
+    std::string username_;
 };

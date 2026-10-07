@@ -1,11 +1,11 @@
 :root {
-  --bg-color: #0f172a;
-  --panel-bg: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --border: #334155;
+  --bg-color: #f9f6f0;       /* Cream */
+  --panel-bg: #1c2a4f;       /* Navy */
+  --text-main: #f9f6f0;      /* Cream text */
+  --text-muted: #a3b3d1;     /* Muted blue/cream */
+  --primary: #d86c58;        /* Terracotta */
+  --primary-hover: #c45b49;  /* Darker Terracotta */
+  --border: #2d3f6b;         /* Lighter Navy */
   --accent: #10b981;
 }
 
@@ -26,8 +26,8 @@ body {
 }
 
 .app-container {
-  width: 100%;
-  max-width: 900px;
+  width: 95vw;
+  max-width: 1200px;
   height: 90vh;
   background: var(--panel-bg);
   border-radius: 16px;
@@ -40,7 +40,7 @@ body {
 
 .header {
   padding: 20px;
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(28, 42, 79, 0.95);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
   display: flex;
@@ -51,7 +51,7 @@ body {
 .header h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  background: linear-gradient(to right, #f9f6f0, #d86c58);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -82,7 +82,7 @@ body {
   gap: 16px;
   padding: 40px;
   max-width: 400px;
-  margin: auto;
+  margin: 8vh auto auto auto; /* Significantly reduces the huge gap above */
   width: 100%;
 }
 
@@ -98,11 +98,11 @@ label {
 }
 
 input {
-  background: #0f172a;
+  background: #253661;
   border: 1px solid var(--border);
   padding: 12px 16px;
   border-radius: 8px;
-  color: white;
+  color: var(--text-main);
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -110,7 +110,7 @@ input {
 
 input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 2px rgba(216, 108, 88, 0.3);
 }
 
 button {
@@ -152,7 +152,7 @@ button:active {
 .message {
   display: flex;
   flex-direction: column;
-  max-width: 70%;
+  max-width: 60%; /* Tighter width on large desktop screens */
   animation: slideIn 0.3s ease-out;
 }
 
@@ -187,7 +187,7 @@ button:active {
 }
 
 .message.other .message-bubble {
-  background: #334155;
+  background: #2d3f6b;
   color: var(--text-main);
   border-bottom-left-radius: 2px;
 }

@@ -46,14 +46,14 @@ function App() {
       
       setMessages([{
         type: 'system',
-        text: `Joined room: ${room}`
+        text: `Connecting to room ${room}...`
       }]);
     };
 
     ws.current.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        if (data.type === 'msg') {
+        if (data.type === 'msg' || data.type === 'system') {
           setMessages(prev => [...prev, data]);
         }
       } catch (err) {

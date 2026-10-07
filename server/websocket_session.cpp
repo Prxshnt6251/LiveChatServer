@@ -56,9 +56,17 @@ void websocket_session::on_read(beast::error_code ec, std::size_t bytes_transfer
 
         if (type == "join") {
             std::string room = j.value("room", "");
-            if (!room.empty()) {
+            std::string user = j.value("user", "");
+            if (!room.empty() && !user.empty()) {
+                username_ = user;
                 rooms_->join(room, shared_from_this());
-                std::cout << "User joined room: " << room << "\n";
+                std::cout << "User " << user << " joined room: " << room << "\n";
+                
+                nlohmann::json sysMsg = {
+                    {"type", "system"},
+                    {"text", user + " has entered the room."}
+                };
+                rooms_->broadcast(room, sysMsg);
             }
         } else if (type == "msg") {
             std::string room = j.value("room", "");
