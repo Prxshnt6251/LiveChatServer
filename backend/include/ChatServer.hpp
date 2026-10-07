@@ -2,6 +2,7 @@
 #define CHATSERVER_HPP
 
 #include <boost/asio.hpp>
+#include <memory>
 
 class ChatServer {
 public:
@@ -10,6 +11,8 @@ public:
 
 private:
     boost::asio::ip::tcp::acceptor acceptor_;
+
+    void accept();
 };
 
 #endif
