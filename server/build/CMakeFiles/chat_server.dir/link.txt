@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/chat_server.dir/main.cpp.o CMakeFiles/chat_server.dir/room_manager.cpp.o CMakeFiles/chat_server.dir/websocket_session.cpp.o -o chat_server  -Wl,-rpath,/opt/anaconda3/lib /opt/anaconda3/lib/libboost_system.dylib
