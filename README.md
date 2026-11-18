@@ -226,3 +226,4 @@ LiveChatServer/
 ## Author
 
 - **Prashant Saini** — [GitHub](https://github.com/Prxshnt6251) &bull; [parshantsaini360@gmail.com](mailto:parshantsaini360@gmail.com)
+- **Pratyaksh Semwal** — [GitHub](https://github.com/pratyaksho7) &bull; []()
