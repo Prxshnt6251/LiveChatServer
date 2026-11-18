@@ -1,3 +1,41 @@
+# Prerequisites / Compiled Binaries
+*.o
+*.obj
+*.so
+*.dylib
+*.a
+*.exe
+*.out
+*.app
+
+# CMake build outputs
 build/
-*.db
+*/build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Clang / Compilation database
+compile_commands.json
+.cache/
+.clangd/
+
+# OS specific files
 .DS_Store
+**/.DS_Store
+._*
+Thumbs.db
+
+# Logs and databases
+*.log
+*.db
+*.sqlite
+
+# IDE / Editor caches
+.vscode/ipch/
+.vscode/*.log
+*.swp
+*.swo
+*~
