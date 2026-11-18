@@ -1,0 +1,425 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold >>
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792]
+/Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >>
+/Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4878 >>
+stream
+0.120 0.350 0.850 rg
+0.00 786.00 612.00 6.00 re f
+0.080 0.120 0.200 rg
+54.00 645.00 504.00 85.00 re f
+0.230 0.510 0.960 rg
+54.00 645.00 5.00 85.00 re f
+/F2 17 Tf
+1.000 1.000 1.000 rg
+BT 1 0 0 1 72.00 704.00 Tm (C++ LIVE CHAT BROADCAST DEMO) Tj ET
+/F1 11 Tf
+0.650 0.750 0.880 rg
+BT 1 0 0 1 72.00 686.00 Tm (Terminal-to-Window Demonstration Walkthrough & Teacher Defense Guide) Tj ET
+/F2 9 Tf
+0.200 0.800 0.500 rg
+BT 1 0 0 1 72.00 662.00 Tm (Standard: C++17 | Server: chat_server \(Port 8080\) | Client: chat_client | Engine: Boost.Asio & Beast) Tj ET
+/F2 13 Tf
+0.120 0.180 0.300 rg
+BT 1 0 0 1 54.00 625.00 Tm (1. Demo Concept: Terminal-to-Window Broadcasting) Tj ET
+0.850 0.880 0.920 RG
+1.00 w
+54.00 619.00 m 558.00 619.00 l S
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 603.00 Tm (In this demonstration, messages typed directly into a terminal are sent over) Tj ET
+BT 1 0 0 1 54.00 589.00 Tm (asynchronous sockets to the C++ central server, which broadcasts them in real time to) Tj ET
+BT 1 0 0 1 54.00 575.00 Tm (other open windows. You can broadcast between two terminal windows, or from a terminal) Tj ET
+BT 1 0 0 1 54.00 561.00 Tm (window into a GUI/browser window.) Tj ET
+0.960 0.970 0.990 rg
+54.00 387.00 504.00 156.00 re f
+0.820 0.860 0.920 RG
+0.75 w
+54.00 387.00 504.00 156.00 re s
+/F2 9 Tf
+0.350 0.420 0.550 rg
+BT 1 0 0 1 66.00 529.00 Tm (BROADCAST ARCHITECTURE) Tj ET
+0.880 0.900 0.940 RG
+54.00 521.00 m 558.00 521.00 l S
+/F3 9 Tf
+0.120 0.160 0.280 rg
+BT 1 0 0 1 66.00 511.00 Tm (+--------------------------------------------------------------------------------+) Tj ET
+BT 1 0 0 1 66.00 498.00 Tm (|                         TERMINAL BROADCAST DATAFLOW                            |) Tj ET
+BT 1 0 0 1 66.00 485.00 Tm (+--------------------------------------------------------------------------------+) Tj ET
+BT 1 0 0 1 66.00 472.00 Tm (  [ Terminal Window 1 \(Alice\) ] --\(Type & Enter\)--> [ C++ chat_server \(8080\) ]   |) Tj ET
+BT 1 0 0 1 66.00 459.00 Tm (                                                             |                   |) Tj ET
+BT 1 0 0 1 66.00 446.00 Tm (                                                      \(Broadcast Hub\)            |) Tj ET
+BT 1 0 0 1 66.00 433.00 Tm (                                                             v                   |) Tj ET
+BT 1 0 0 1 66.00 420.00 Tm (  [ Terminal Window 2 \(Bob\) ] <---\(Instant Display\)---------+                   |) Tj ET
+BT 1 0 0 1 66.00 407.00 Tm (  [ Browser Window / Tab ]    <---\(Instant Display\)---------+                   |) Tj ET
+BT 1 0 0 1 66.00 394.00 Tm (+--------------------------------------------------------------------------------+) Tj ET
+/F2 13 Tf
+0.120 0.180 0.300 rg
+BT 1 0 0 1 54.00 373.00 Tm (2. Project Components) Tj ET
+0.850 0.880 0.920 RG
+1.00 w
+54.00 367.00 m 558.00 367.00 l S
+0.150 0.390 0.920 rg
+57.00 354.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 351.00 Tm (chat_server:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 137.60 351.00 Tm (The central C++ hub on port 8080. Accepts connections, manages room) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 337.00 Tm (members, and broadcasts messages.) Tj ET
+0.150 0.390 0.920 rg
+57.00 326.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 323.00 Tm (chat_client:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 137.60 323.00 Tm (A lightweight C++ terminal client. Reads user text from stdin and) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 309.00 Tm (listens asynchronously on a background thread.) Tj ET
+0.150 0.390 0.920 rg
+57.00 298.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 295.00 Tm (ChatRoom:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 120.20 295.00 Tm (Thread-safe room manager protected by std::mutex and std::lock_guard to) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 281.00 Tm (prevent broadcast race conditions.) Tj ET
+0.150 0.390 0.920 rg
+57.00 270.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 267.00 Tm (Simplified C++ Code:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 184.00 267.00 Tm (All redundant std:: clutter was eliminated using targeted) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 253.00 Tm (using-declarations and Boost namespace aliases.) Tj ET
+0.930 0.980 0.950 rg
+54.00 167.00 504.00 72.00 re f
+0.200 0.700 0.400 rg
+54.00 167.00 4.00 72.00 re f
+/F2 10 Tf
+0.050 0.500 0.250 rg
+BT 1 0 0 1 68.00 223.00 Tm (Teacher Presentation Tip) Tj ET
+/F1 9.5 Tf
+0.200 0.250 0.320 rg
+BT 1 0 0 1 68.00 208.00 Tm (Teachers appreciate seeing multiple terminal windows interacting via standard) Tj ET
+BT 1 0 0 1 68.00 194.00 Tm (Unix I/O and sockets. It directly demonstrates raw networking fundamentals) Tj ET
+BT 1 0 0 1 68.00 180.00 Tm (without hiding behind third-party server frameworks.) Tj ET
+0.850 0.880 0.920 RG
+54.00 42.00 m 558.00 42.00 l S
+/F1 9 Tf
+0.500 0.550 0.600 rg
+BT 1 0 0 1 54.00 28.00 Tm (C++ Live Chat Broadcast Demo | Terminal-to-Window Teacher Guide) Tj ET
+BT 1 0 0 1 525.00 28.00 Tm (Page 1 of 3) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792]
+/Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >>
+/Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4277 >>
+stream
+0.120 0.350 0.850 rg
+0.00 786.00 612.00 6.00 re f
+/F2 13 Tf
+0.120 0.180 0.300 rg
+BT 1 0 0 1 54.00 738.00 Tm (3. Step-by-Step Demo: Terminal to Another Window) Tj ET
+0.850 0.880 0.920 RG
+1.00 w
+54.00 732.00 m 558.00 732.00 l S
+0.150 0.390 0.920 rg
+54.00 701.00 20.00 20.00 re f
+/F2 11 Tf
+1.000 1.000 1.000 rg
+BT 1 0 0 1 60.00 715.00 Tm (1) Tj ET
+/F2 13 Tf
+0.100 0.150 0.250 rg
+BT 1 0 0 1 82.00 715.00 Tm (Step 1: Compile the Server & Client) Tj ET
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 692.00 Tm (Open your terminal and build both C++ executables with CMake:) Tj ET
+0.960 0.970 0.990 rg
+54.00 622.00 504.00 52.00 re f
+0.820 0.860 0.920 RG
+0.75 w
+54.00 622.00 504.00 52.00 re s
+/F2 9 Tf
+0.350 0.420 0.550 rg
+BT 1 0 0 1 66.00 660.00 Tm (TERMINAL BUILD COMMAND) Tj ET
+0.880 0.900 0.940 RG
+54.00 652.00 m 558.00 652.00 l S
+/F3 9 Tf
+0.120 0.160 0.280 rg
+BT 1 0 0 1 66.00 642.00 Tm ($ cd /Users/prashant/Desktop/live-chat-c++) Tj ET
+BT 1 0 0 1 66.00 629.00 Tm ($ cmake -B backend/build -S backend && cmake --build backend/build) Tj ET
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 610.00 Tm (This builds both chat_server and chat_client in backend/build/.) Tj ET
+0.150 0.390 0.920 rg
+54.00 577.00 20.00 20.00 re f
+/F2 11 Tf
+1.000 1.000 1.000 rg
+BT 1 0 0 1 60.00 591.00 Tm (2) Tj ET
+/F2 13 Tf
+0.100 0.150 0.250 rg
+BT 1 0 0 1 82.00 591.00 Tm (Step 2: Start the Central Chat Server \(Window 1\)) Tj ET
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 568.00 Tm (In your first terminal window, start the C++ server:) Tj ET
+0.960 0.970 0.990 rg
+54.00 511.00 504.00 39.00 re f
+0.820 0.860 0.920 RG
+0.75 w
+54.00 511.00 504.00 39.00 re s
+/F2 9 Tf
+0.350 0.420 0.550 rg
+BT 1 0 0 1 66.00 536.00 Tm (TERMINAL 1 \(SERVER\)) Tj ET
+0.880 0.900 0.940 RG
+54.00 528.00 m 558.00 528.00 l S
+/F3 9 Tf
+0.120 0.160 0.280 rg
+BT 1 0 0 1 66.00 518.00 Tm ($ ./backend/build/chat_server) Tj ET
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 499.00 Tm (Output: 'Server started on port 8080'. The server is now actively listening for) Tj ET
+BT 1 0 0 1 54.00 485.00 Tm (connections.) Tj ET
+0.150 0.390 0.920 rg
+54.00 452.00 20.00 20.00 re f
+/F2 11 Tf
+1.000 1.000 1.000 rg
+BT 1 0 0 1 60.00 466.00 Tm (3) Tj ET
+/F2 13 Tf
+0.100 0.150 0.250 rg
+BT 1 0 0 1 82.00 466.00 Tm (Step 3: Connect Client 1 - Alice \(Window 2\)) Tj ET
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 443.00 Tm (Open a second terminal window \(or tab\) and run:) Tj ET
+0.960 0.970 0.990 rg
+54.00 373.00 504.00 52.00 re f
+0.820 0.860 0.920 RG
+0.75 w
+54.00 373.00 504.00 52.00 re s
+/F2 9 Tf
+0.350 0.420 0.550 rg
+BT 1 0 0 1 66.00 411.00 Tm (TERMINAL 2 \(CLIENT 1\)) Tj ET
+0.880 0.900 0.940 RG
+54.00 403.00 m 558.00 403.00 l S
+/F3 9 Tf
+0.120 0.160 0.280 rg
+BT 1 0 0 1 66.00 393.00 Tm ($ cd /Users/prashant/Desktop/live-chat-c++) Tj ET
+BT 1 0 0 1 66.00 380.00 Tm ($ ./backend/build/chat_client Alice) Tj ET
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 361.00 Tm (Output: 'Connected to Live Chat Server at 127.0.0.1:8080 as [Alice]'. Window 1 logs:) Tj ET
+BT 1 0 0 1 54.00 347.00 Tm ('User joined room. Total active clients: 1'.) Tj ET
+0.150 0.390 0.920 rg
+54.00 314.00 20.00 20.00 re f
+/F2 11 Tf
+1.000 1.000 1.000 rg
+BT 1 0 0 1 60.00 328.00 Tm (4) Tj ET
+/F2 13 Tf
+0.100 0.150 0.250 rg
+BT 1 0 0 1 82.00 328.00 Tm (Step 4: Connect Client 2 - Bob \(Window 3\)) Tj ET
+/F1 10 Tf
+0.220 0.260 0.320 rg
+BT 1 0 0 1 54.00 305.00 Tm (Open a third terminal window \(or a browser window\) to serve as the destination window:) Tj ET
+0.960 0.970 0.990 rg
+54.00 196.00 504.00 91.00 re f
+0.820 0.860 0.920 RG
+0.75 w
+54.00 196.00 504.00 91.00 re s
+/F2 9 Tf
+0.350 0.420 0.550 rg
+BT 1 0 0 1 66.00 273.00 Tm (WINDOW 3 \(DESTINATION WINDOW\)) Tj ET
+0.880 0.900 0.940 RG
+54.00 265.00 m 558.00 265.00 l S
+/F3 9 Tf
+0.120 0.160 0.280 rg
+BT 1 0 0 1 66.00 255.00 Tm (# Option A: Another Terminal Window) Tj ET
+BT 1 0 0 1 66.00 242.00 Tm ($ ./backend/build/chat_client Bob) Tj ET
+BT 1 0 0 1 66.00 229.00 Tm () Tj ET
+BT 1 0 0 1 66.00 216.00 Tm (# Option B: Browser Window) Tj ET
+BT 1 0 0 1 66.00 203.00 Tm ($ open frontend/index.html) Tj ET
+0.850 0.880 0.920 RG
+54.00 42.00 m 558.00 42.00 l S
+/F1 9 Tf
+0.500 0.550 0.600 rg
+BT 1 0 0 1 54.00 28.00 Tm (C++ Live Chat Broadcast Demo | Terminal-to-Window Teacher Guide) Tj ET
+BT 1 0 0 1 525.00 28.00 Tm (Page 2 of 3) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792]
+/Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >>
+/Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 4731 >>
+stream
+0.120 0.350 0.850 rg
+0.00 786.00 612.00 6.00 re f
+0.150 0.390 0.920 rg
+54.00 725.00 20.00 20.00 re f
+/F2 11 Tf
+1.000 1.000 1.000 rg
+BT 1 0 0 1 60.00 739.00 Tm (5) Tj ET
+/F2 13 Tf
+0.100 0.150 0.250 rg
+BT 1 0 0 1 82.00 739.00 Tm (Step 5: Perform the Live Broadcast) Tj ET
+0.150 0.390 0.920 rg
+57.00 719.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 716.00 Tm (Action:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 108.60 716.00 Tm (Go to Terminal Window 2 \(Alice\), type: 'Hello Bob! This message was sent) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 702.00 Tm (from terminal.' and hit Enter.) Tj ET
+0.150 0.390 0.920 rg
+57.00 691.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 688.00 Tm (Immediate Result:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 166.60 688.00 Tm (Look at Window 3 \(Bob or Browser\): The message immediately) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 674.00 Tm (appears: '[Alice]: Hello Bob! This message was sent from terminal.') Tj ET
+0.150 0.390 0.920 rg
+57.00 663.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 660.00 Tm (Two-Way Reply:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 149.20 660.00 Tm (Now type in Window 3: 'Got it Alice! Real-time broadcast works.' and) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 646.00 Tm (hit Enter. Terminal 2 instantly shows Bob's reply!) Tj ET
+0.150 0.390 0.920 rg
+57.00 635.00 4.00 4.00 re f
+0.220 0.260 0.320 rg
+/F2 10 Tf
+BT 1 0 0 1 68.00 632.00 Tm (Server Admin Broadcast:) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 201.40 632.00 Tm (Type in Terminal 1 \(Server\): 'Server announcement: demo in) Tj ET
+/F1 10 Tf
+BT 1 0 0 1 68.00 618.00 Tm (progress' -> It broadcasts to ALL open windows!) Tj ET
+/F2 13 Tf
+0.120 0.180 0.300 rg
+BT 1 0 0 1 54.00 602.00 Tm (4. Teacher Q&A Defense Cheat Sheet) Tj ET
+0.850 0.880 0.920 RG
+1.00 w
+54.00 596.00 m 558.00 596.00 l S
+0.950 0.960 1.000 rg
+54.00 494.00 504.00 86.00 re f
+0.300 0.400 0.900 rg
+54.00 494.00 4.00 86.00 re f
+/F2 10 Tf
+0.150 0.250 0.800 rg
+BT 1 0 0 1 68.00 564.00 Tm (Q1: How does the terminal client read and write at the same time without blocking?) Tj ET
+/F1 9.5 Tf
+0.200 0.250 0.320 rg
+BT 1 0 0 1 68.00 549.00 Tm (Answer: The client uses multi-threading: the main thread blocks on) Tj ET
+BT 1 0 0 1 68.00 535.00 Tm (std::getline\(std::cin\) waiting for user input, while a dedicated background) Tj ET
+BT 1 0 0 1 68.00 521.00 Tm (std::thread continuously reads incoming broadcast frames from the WebSocket) Tj ET
+BT 1 0 0 1 68.00 507.00 Tm (stream and prints them to std::cout.) Tj ET
+0.950 0.960 1.000 rg
+54.00 396.00 504.00 86.00 re f
+0.300 0.400 0.900 rg
+54.00 396.00 4.00 86.00 re f
+/F2 10 Tf
+0.150 0.250 0.800 rg
+BT 1 0 0 1 68.00 466.00 Tm (Q2: How does the server broadcast to multiple clients simultaneously?) Tj ET
+/F1 9.5 Tf
+0.200 0.250 0.320 rg
+BT 1 0 0 1 68.00 451.00 Tm (Answer: The server maintains a ChatRoom class holding all active) Tj ET
+BT 1 0 0 1 68.00 437.00 Tm (WebSocketSession shared pointers. When any client sends a message,) Tj ET
+BT 1 0 0 1 68.00 423.00 Tm (ChatRoom::broadcast iterates over the collection \(protected by std::mutex and) Tj ET
+BT 1 0 0 1 68.00 409.00 Tm (std::lock_guard\) and calls send\(\) on each session.) Tj ET
+0.950 0.960 1.000 rg
+54.00 298.00 504.00 86.00 re f
+0.300 0.400 0.900 rg
+54.00 298.00 4.00 86.00 re f
+/F2 10 Tf
+0.150 0.250 0.800 rg
+BT 1 0 0 1 68.00 368.00 Tm (Q3: Why use WebSockets instead of basic raw TCP sockets?) Tj ET
+/F1 9.5 Tf
+0.200 0.250 0.320 rg
+BT 1 0 0 1 68.00 353.00 Tm (Answer: WebSockets provide standardized message framing \(preserving message) Tj ET
+BT 1 0 0 1 68.00 339.00 Tm (boundaries without custom length-prefix headers\) and enable seamless) Tj ET
+BT 1 0 0 1 68.00 325.00 Tm (interoperability between C++ terminal programs and web clients over the same) Tj ET
+BT 1 0 0 1 68.00 311.00 Tm (port.) Tj ET
+/F2 13 Tf
+0.120 0.180 0.300 rg
+BT 1 0 0 1 54.00 284.00 Tm (5. Quick Reference Commands) Tj ET
+0.850 0.880 0.920 RG
+1.00 w
+54.00 278.00 m 558.00 278.00 l S
+0.960 0.970 0.990 rg
+54.00 171.00 504.00 91.00 re f
+0.820 0.860 0.920 RG
+0.75 w
+54.00 171.00 504.00 91.00 re s
+/F2 9 Tf
+0.350 0.420 0.550 rg
+BT 1 0 0 1 66.00 248.00 Tm (QUICK COMMANDS) Tj ET
+0.880 0.900 0.940 RG
+54.00 240.00 m 558.00 240.00 l S
+/F3 9 Tf
+0.120 0.160 0.280 rg
+BT 1 0 0 1 66.00 230.00 Tm (# Helper script \(builds and guides the terminal demo\):) Tj ET
+BT 1 0 0 1 66.00 217.00 Tm ($ ./demo_terminal.sh) Tj ET
+BT 1 0 0 1 66.00 204.00 Tm () Tj ET
+BT 1 0 0 1 66.00 191.00 Tm (# Stop all running processes:) Tj ET
+BT 1 0 0 1 66.00 178.00 Tm ($ pkill -f chat_server) Tj ET
+0.850 0.880 0.920 RG
+54.00 42.00 m 558.00 42.00 l S
+/F1 9 Tf
+0.500 0.550 0.600 rg
+BT 1 0 0 1 54.00 28.00 Tm (C++ Live Chat Broadcast Demo | Terminal-to-Window Teacher Guide) Tj ET
+BT 1 0 0 1 525.00 28.00 Tm (Page 3 of 3) Tj ET
+endstream
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000128 00000 n 
+0000000198 00000 n 
+0000000273 00000 n 
+0000000341 00000 n 
+0000000414 00000 n 
+0000000570 00000 n 
+0000005500 00000 n 
+0000005657 00000 n 
+0000009987 00000 n 
+0000010145 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+14929
+%%EOF

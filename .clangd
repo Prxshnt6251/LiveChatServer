@@ -1,0 +1,6 @@
+CompileFlags:
+  CompilationDatabase: backend/build
+  Add:
+    - -isystem/opt/homebrew/include
+    - -Ibackend/include
+    - -std=c++17

@@ -1,3 +1,5 @@
 {
-    "cmake.sourceDirectory": "/Users/pratyakshsemwal/live-chat/backend"
+    "cmake.sourceDirectory": "${workspaceFolder}/backend",
+    "cmake.buildDirectory": "${workspaceFolder}/backend/build",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/backend/build/compile_commands.json"
 }

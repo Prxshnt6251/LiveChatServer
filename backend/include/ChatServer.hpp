@@ -1,18 +1,19 @@
-#ifndef CHATSERVER_HPP
-#define CHATSERVER_HPP
+#pragma once
 
 #include <boost/asio.hpp>
-#include <memory>
+#include "ChatRoom.hpp"
+
+namespace net = boost::asio;
+using tcp = net::ip::tcp;
 
 class ChatServer {
 public:
-    ChatServer(boost::asio::io_context& io_context,
-               unsigned short port);
+    ChatServer(net::io_context& io_context, unsigned short port);
+    ChatRoom& get_room() { return room_; }
 
 private:
-    boost::asio::ip::tcp::acceptor acceptor_;
+    tcp::acceptor acceptor_;
+    ChatRoom room_;
 
     void accept();
 };
-
-#endif
