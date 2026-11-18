@@ -30,94 +30,163 @@ The system operates on an asynchronous non-blocking event-driven model (`net::io
 
 ---
 
-## Prerequisites
+## 🚀 Getting Started on Your Machine (Clone & Run)
 
-- **C++ Compiler**: Clang (AppleClang >= 12.0) or GCC (>= 9.0) with C++17 support
-- **CMake**: Version 3.16 or higher
-- **Boost Libraries**: System component (`boost::system`)
-  - **macOS**: `brew install boost`
-  - **Ubuntu / Debian**: `sudo apt install libboost-all-dev`
+Follow these steps if you just cloned this repository onto a fresh computer.
 
----
+### Step 1: Install Prerequisites
 
-## Quick Start (Unified Launcher)
+You need a C++17 compiler, CMake, and the Boost libraries.
 
-The included `run_demo.sh` script automatically checks and compiles the backend, and launches either the server or terminal clients with a single command:
-
+#### On macOS:
+Using [Homebrew](https://brew.sh):
 ```bash
-# Clone the repository
-git clone https://github.com/Prxshnt6251/LiveChatServer.git
-cd LiveChatServer
+brew install cmake boost
+```
+*(Both Apple Silicon M1/M2/M3/M4 and Intel Macs are fully supported).*
 
-# 1. Start the Chat Server (Terminal Window 1)
-./run_demo.sh
+#### On Ubuntu / Debian:
+```bash
+sudo apt update
+sudo apt install -y build-essential cmake libboost-all-dev
+```
 
-# 2. Connect Client 1 as Alice (Terminal Window 2)
-./run_demo.sh Alice
+#### On Fedora / RHEL:
+```bash
+sudo dnf install -y gcc-c++ cmake boost-devel
+```
 
-# 3. Connect Client 2 as Bob (Terminal Window 3)
-./run_demo.sh Bob
+#### On Arch Linux:
+```bash
+sudo pacman -S base-devel cmake boost
 ```
 
 ---
 
-## Manual Build Instructions
-
-If you prefer to build manually with CMake:
+### Step 2: Clone the Repository
 
 ```bash
-# 1. Configure the project
+git clone https://github.com/Prxshnt6251/LiveChatServer.git
+cd LiveChatServer
+```
+
+---
+
+### Step 3: Run with the Unified Launcher (`run_demo.sh`)
+
+The script automatically detects if the project needs compilation, builds it using CMake, and starts the requested component.
+
+Make sure the script has execution permissions:
+```bash
+chmod +x run_demo.sh
+```
+
+#### Running the Demo (Open 3 Terminal Windows or Tabs):
+
+1. **Terminal Window 1 — Start the Server:**
+   ```bash
+   ./run_demo.sh
+   ```
+   *Output:*
+   ```text
+   ==========================================================
+          C++ Live Chat Broadcast Server (Port 8080)
+   ==========================================================
+   Server starting! In other terminal windows, run:
+      ./run_demo.sh Alice
+      ./run_demo.sh Bob
+   Press Ctrl+C to stop the server.
+   ==========================================================
+   [Server] Started on port 8080
+   [Server] Ready for connections. Type message here to broadcast as admin.
+   ```
+
+2. **Terminal Window 2 — Connect as User "Alice":**
+   ```bash
+   ./run_demo.sh Alice
+   ```
+
+3. **Terminal Window 3 — Connect as User "Bob":**
+   ```bash
+   ./run_demo.sh Bob
+   ```
+
+---
+
+### Step 4: Test Broadcasting
+
+- Go to **Terminal 2 (Alice)**, type:
+  ```text
+  Hello Bob! Testing real-time broadcast.
+  ```
+  Press **Enter**.
+- Check **Terminal 3 (Bob)**: The message appears immediately in real time:
+  ```text
+  [Alice]: Hello Bob! Testing real-time broadcast.
+  ```
+- Type a reply in **Terminal 3 (Bob)** $\rightarrow$ it instantly appears in Alice's terminal!
+- Type a message in **Terminal 1 (Server)** $\rightarrow$ it broadcasts a `[Server Admin]` announcement to all connected clients!
+
+---
+
+## Manual Build with CMake (Alternative)
+
+If you prefer building manually without the shell script:
+
+```bash
+# 1. Configure CMake build directory
 cmake -B backend/build -S backend
 
-# 2. Build executables (chat_server & chat_client)
+# 2. Compile both chat_server and chat_client
 cmake --build backend/build
 ```
 
-This generates two executables in `backend/build/`:
-- `backend/build/chat_server`
-- `backend/build/chat_client`
+After building:
+- Start server: `./backend/build/chat_server`
+- Start client: `./backend/build/chat_client <Username>`
 
 ---
 
-## Live Demo Walkthrough
+## 🛠️ VS Code Configuration (Zero-Configuration IntelliSense)
 
-### 1. Start Server
-In your first terminal window:
-```bash
-./backend/build/chat_server
-```
-*Console output:*
-```text
-[Server] Started on port 8080
-[Server] Ready for connections. Type message here to broadcast as admin.
-```
+This repository includes pre-configured `.vscode/` and `.clangd` files:
+- **`.vscode/c_cpp_properties.json`**: Configured for macOS and Linux include paths (`/opt/homebrew/include`, `/usr/local/include`) and linked to `compile_commands.json`.
+- **`.vscode/settings.json`**: Points CMake Tools extension directly to `${workspaceFolder}/backend`.
+- **`.clangd`**: Language server database configuration for error-free indexing.
 
-### 2. Connect Clients
-In separate terminal windows:
-```bash
-# Terminal 2:
-./backend/build/chat_client Alice
-
-# Terminal 3:
-./backend/build/chat_client Bob
-```
-
-### 3. Real-Time Broadcasting
-- In **Alice's terminal**, type:
-  ```text
-  Hello Bob! Testing live C++ broadcast.
-  ```
-  Press **Enter**.
-- In **Bob's terminal**, the message immediately appears:
-  ```text
-  [Alice]: Hello Bob! Testing live C++ broadcast.
-  ```
-- Any reply typed in **Bob's terminal** instantly broadcasts back to Alice.
-- Typing directly in the **Server console** broadcasts a `[Server Admin]` announcement to all connected clients!
+When opening in VS Code:
+1. Open the folder: `code .`
+2. If prompted, select your compiler (Clang or GCC).
+3. Headers like `<boost/asio.hpp>` and `<boost/beast.hpp>` will resolve without red squiggly lines.
 
 ---
 
-## Documentation & Teacher Presentation Guide
+## ❓ Troubleshooting & FAQs for New Users
+
+### 1. `boost/asio.hpp: No such file or directory`
+- **Cause**: Boost is not installed on the system, or CMake cannot locate it.
+- **Fix**: Run `brew install boost` (macOS) or `sudo apt install libboost-all-dev` (Ubuntu). Then re-run `cmake -B backend/build -S backend`.
+
+### 2. `Address already in use (port 8080)`
+- **Cause**: Another instance of `chat_server` or another app is already using port `8080`.
+- **Fix**: Free the port by running:
+  ```bash
+  lsof -ti:8080 | xargs kill -9
+  ```
+
+### 3. `Permission denied: ./run_demo.sh`
+- **Fix**: Grant executable permission:
+  ```bash
+  chmod +x run_demo.sh
+  ```
+
+### 4. How to Disconnect or Stop
+- Client: Type `exit` or `quit` and press **Enter**.
+- Server: Press **`Ctrl + C`** in the server terminal window.
+
+---
+
+## Documentation & Presentation Guide
 
 A comprehensive 3-page presentation walkthrough and technical defense guide is included:
 - **[Live_Chat_Collaboration_Demo_Guide.pdf](Live_Chat_Collaboration_Demo_Guide.pdf)**
@@ -148,7 +217,7 @@ LiveChatServer/
 ├── .clangd                         # Language server compilation flags
 ├── .gitignore                      # Git ignore patterns for build & OS artifacts
 ├── Live_Chat_Collaboration_Demo_Guide.pdf  # Teacher presentation guide
-├── README.md                       # Project documentation
+├── README.md                       # Complete project setup and operation guide
 └── run_demo.sh                     # Unified demo launcher script
 ```
 
